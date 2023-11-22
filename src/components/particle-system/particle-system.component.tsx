@@ -1,5 +1,4 @@
 // ParticleSystem.tsx
-import useParticleGeometry from '../../custom-hooks/use-particle-geometry/useParticleGeometry';
 import useParticleMaterial from '../../custom-hooks/use-particle-material/useParticleMaterial';
 import useInitializeParticles from '../../custom-hooks/use-initialize-particles/useInitializeParticles';
 import particleTextureImage from '../../assets/particle1.png';
@@ -22,10 +21,9 @@ const ParticleSystem: React.FC<{ scene: THREE.Scene }> = ({ scene }) => {
     spawnShapeSize,
     gravity,
     isApplyingGravity,
-    // ... other properties from context
   } = useParticleContext();
 
-  const getSpawnPoint = useParticleSpawnArea(spawnShape, spawnShapeSize,spawnPosition); // Use the custom hook
+  const getSpawnPoint = useParticleSpawnArea(spawnShape, spawnShapeSize,spawnPosition); 
   const geometry = useMemo(() => new THREE.BoxGeometry(particleDimensions.x,particleDimensions.y,particleDimensions.z),
                                                       [particleDimensions.x, particleDimensions.y, particleDimensions.z]);
   const material = useParticleMaterial(particleTextureImage);
@@ -41,10 +39,7 @@ const ParticleSystem: React.FC<{ scene: THREE.Scene }> = ({ scene }) => {
     getSpawnPoint,
     isGenerating,
     gravity,
-    isApplyingGravity,
-    spawnShape,
-    spawnShapeSize,
-    spawnPosition);
+    isApplyingGravity);
 
   return null;
 };

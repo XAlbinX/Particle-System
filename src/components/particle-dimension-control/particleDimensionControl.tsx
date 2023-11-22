@@ -14,7 +14,6 @@ const ParticleDimensionControl: React.FC = () => {
             return updatedDimensions;
         });
     };
-    console.log(particleDimensions);
     return (
         <Box style={{
             display: 'flex',

@@ -47,11 +47,11 @@ export const ParticleContextProvider: React.FC<ParticleProviderProps> = ({ child
   // Define state variables and functions here
   const [isGenerating, setIsGenerating] = useState(false);
   const [particleMeshSize, setParticleMeshSize] = useState(new THREE.Vector3(1, 1, 0));
-  const [particleCount, setParticleCount] = useState(100);
+  const [particleCount, setParticleCount] = useState(1000);
   const [gravity, setGravity] = useState(new THREE.Vector3(0, -9.81, 0));
   const [isApplyingGravity, setisApplyingGravity] = useState(false);
   const [spawnPosition, setSpawnPosition] = useState(new THREE.Vector3(0, 0, 0));
-  const [particleDimensions, setParticleDimensions] = useState(new THREE.Vector3(1, 1, 1));
+  const [particleDimensions, setParticleDimensions] = useState(new THREE.Vector3(1, 1, 0));
   const [particleDirection, setParticleDirection] = useState(new THREE.Vector3(1, 0, 0));
   const [particleSpeed, setParticleSpeed] = useState(new THREE.Vector3(1, 1, 1));
   const [particleLifespan, setParticleLifespan] = useState<LifespanRange>({ min: 1, max: 5 });

@@ -1,12 +1,10 @@
 // ThreeScene.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import { useParticleContext } from '../../contexts/particle.context';
 import ParticleSystem from '../particle-system/particle-system.component'; 
 
 const ThreeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const { isGenerating } = useParticleContext();
   const [scene, setScene] = useState<THREE.Scene | null>(null);
   const [renderer, setRenderer] = useState<THREE.WebGLRenderer | null>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);

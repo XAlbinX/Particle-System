@@ -7,13 +7,20 @@ const ParticleMeshSizeControl: React.FC = () => {
     const { particleMeshSize, setParticleMeshSize } = useParticleContext();
 
     const handleMeshSizeChange = (axis: 'x' | 'y' | 'z') => (event: ChangeEvent<HTMLInputElement>) => {
-        const newSize = parseFloat(event.target.value) || 0;
+        // Parse the input value as a float
+        const newSize = parseFloat(event.target.value);
+        
+        // Check if the value is a non-negative number, otherwise default to 0
+        const validatedSize = isNaN(newSize) || newSize < 0 ? 0 : newSize;
+      
+        // Update the particleMeshSize state with the validated value
         setParticleMeshSize((prevSize) => {
-            const updatedSize = new THREE.Vector3().copy(prevSize);
-            updatedSize[axis] = newSize;
-            return updatedSize;
+          const updatedSize = new THREE.Vector3().copy(prevSize);
+          updatedSize[axis] = validatedSize;
+          return updatedSize;
         });
-    };
+      };
+      
 
     return (
         <Box style={{
